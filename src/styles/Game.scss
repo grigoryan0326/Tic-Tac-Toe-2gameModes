@@ -1,0 +1,62 @@
+.game {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  .game-board {
+    .status {
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      span {
+        color: green;
+        font-weight: 700;
+        font-size: 40px;
+      }
+    }
+    .board-row {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 150px);
+      grid-template-rows: repeat(3, 150px);
+      justify-content: center;
+      .square {
+        border: 1px solid white;
+        transition: all 0.3s ease-in;
+        background: rgb(30, 63, 70);
+        &.winningSquare {
+          background-color: green;
+        }
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        font-weight: 700;
+        color: whitesmoke;
+        border-radius: 0;
+      }
+    }
+  }
+  .game-info {
+    margin-top: 40px;
+    ol {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+      list-style-type: armenian;
+      li button {
+        margin-left: 10px;
+        font-family: "DynaPuff", system-ui;
+        &.active {
+          background: green;
+        }
+      }
+    }
+  }
+}
