@@ -1,13 +1,17 @@
-import { useEffect } from "react"
+import { useEffect, useMemo, useState } from "react"
 import Square from "./Square"
-import { useMemo } from "react"
 
 export default function Board({
   ceils,
   currentMove,
+  setCurrentMove,
   squares,
   onPlay,
+  winningSquares,
   setWinningSquares,
+  onRestart,
+  playerSelected,
+  setPlayerSelected,
 }) {
   function handleClick(i) {
     if (calculateWinner(squares) || squares[i]) {
@@ -46,16 +50,6 @@ export default function Board({
   const winner = useMemo(() => calculateWinner(squares), [squares])
   let status
   if (winner) {
-    const squares = document.querySelectorAll(".square")
-    const squaresArr = Array.from(squares)
-    const [a, b, c] = winner.winningSquares
-
-    squaresArr.forEach((square, i) => {
-      if (i === a || i === b || i === c) {
-        square.classList.add("winningSquare")
-      }
-    })
-
     status = (
       <>
         Winner: <span>{winner.winner}</span>
@@ -66,24 +60,33 @@ export default function Board({
   } else {
     status = (
       <>
-        Next player: <span>{currentMove}</span>
+        Current player: <span>{currentMove}</span>
       </>
     )
   }
 
   useEffect(() => {
     setWinningSquares(winner?.winningSquares)
-  }, [winner?.winningSquares])
+  }, [winner])
+
+
 
   return (
     <>
-      <div className="status">{status}</div>
+      <div className="game-actions">
+        
+        <div className="status">{status}</div>
+        <button className="restart" onClick={onRestart}>
+          Restart Game
+        </button>
+      </div>
       <div className="board-row">
         {ceils.map((ceil, i) => {
           return (
             <Square
               value={squares[i]}
               onSquareClick={() => handleClick(i)}
+              winningSquares={winningSquares}
               squareId={i}
               key={i}
             />
