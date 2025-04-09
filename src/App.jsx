@@ -1,14 +1,15 @@
-import { useState } from "react"
-
+import { GameProvider } from "./context/GameContext.jsx"
 import Game from "./components/Game"
 import "./App.css"
 
 function App() {
   return (
-    <>
-      <h1>Hello!</h1>
+    <GameProvider>
+      <h1>
+        Are you ready to <span>lose</span> !? 🙈
+      </h1>
       <Game />
-    </>
+    </GameProvider>
   )
 }
 

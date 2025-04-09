@@ -1,10 +1,9 @@
-import { useState } from "react"
-
 export default function Square({
   value,
   onSquareClick,
   squareId,
   winningSquares,
+  cpuPlaying,
 }) {
   return (
     <button
@@ -13,6 +12,7 @@ export default function Square({
       }`}
       onClick={onSquareClick}
       data-id={squareId}
+      disabled={cpuPlaying}
     >
       {value}
     </button>

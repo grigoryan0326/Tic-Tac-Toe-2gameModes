@@ -38,12 +38,21 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3.5em;
   line-height: 1.1;
-  color: goldenrod;
+  color: yellow;
+  margin-block: 20px;
+  span {
+    color: red;
+  }
+}
+
+p {
+  margin: 0;
 }
 
 ol,
