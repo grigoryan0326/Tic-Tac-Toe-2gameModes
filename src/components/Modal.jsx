@@ -40,7 +40,7 @@ export default function ModalView({
   })
   const { updateState } = useContext(GameContext)
 
-  // to setup inital playMode and playerSymbol
+  // to setup initial playMode and playerSymbol
   useEffect(() => {
     if (showModal && !hasModalInitialized) {
       setHasModalInitialized(true)

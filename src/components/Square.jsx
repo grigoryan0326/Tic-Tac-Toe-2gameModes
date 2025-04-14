@@ -15,6 +15,7 @@ export default function Square({
       disabled={cpuPlaying}
     >
       {value}
+      <small>{squareId}</small>
     </button>
   )
 }

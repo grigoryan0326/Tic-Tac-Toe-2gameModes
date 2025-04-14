@@ -22,7 +22,6 @@ export function cpuPlayAsX(
   //! turn cases
 
   // if there is 2 cpuSymbol in a winning sequence
-
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
     if (
@@ -59,7 +58,6 @@ export function cpuPlayAsX(
   }
 
   // if there is 2 playerSymbols in a winning sequence
-
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
     if (currentSquares[a] !== null && currentSquares[a] === currentSquares[b]) {
@@ -90,7 +88,6 @@ export function cpuPlayAsX(
   }
 
   // if there is no symbol in a middle square
-
   if (currentSquares[4] === null) {
     nextSquares[4] = cpuSymbol
     setCpuPlaying(false)
@@ -129,7 +126,7 @@ export function cpuPlayAsX(
   // to put symbol in the corner
   const corners = [0, 2, 6, 8]
   const playerSymbolIndex = currentSquares.indexOf("O")
-  const opositeCornerIndex =
+  const oppositeCornerIndex =
     playerSymbolIndex === 0
       ? 8
       : playerSymbolIndex === 2
@@ -137,8 +134,8 @@ export function cpuPlayAsX(
       : playerSymbolIndex === 6
       ? 2
       : 0
-  if (currentSquares[opositeCornerIndex] === null) {
-    nextSquares[opositeCornerIndex] = cpuSymbol
+  if (currentSquares[oppositeCornerIndex] === null) {
+    nextSquares[oppositeCornerIndex] = cpuSymbol
     setCpuPlaying(false)
     return handlePlay(nextSquares)
   }
@@ -185,7 +182,6 @@ export function cpuPlayAsO(
   //! turn cases
 
   // if there is 2 cpuSymbol in a winning sequence
-
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
     if (
@@ -222,7 +218,6 @@ export function cpuPlayAsO(
   }
 
   // if there is 2 playerSymbols in a winning sequence
-
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i]
     if (currentSquares[a] !== null && currentSquares[a] === currentSquares[b]) {
@@ -253,7 +248,6 @@ export function cpuPlayAsO(
   }
 
   // if the middle square is free
-
   if (currentSquares[4] === null) {
     nextSquares[4] = cpuSymbol
     setCpuPlaying(false)
@@ -298,12 +292,20 @@ export function cpuPlayAsO(
     }
   }
 
-  // to put symbol in the corner where nearby is playerSymbols
+  // to put symbol in the corner and close possible player forks
   const playerCorners = [
     [1, 0, 3],
     [1, 2, 5],
     [3, 6, 7],
     [7, 8, 5],
+    [0, 6, 7],
+    [0, 2, 5],
+    [2, 8, 7],
+    [2, 0, 3],
+    [6, 0, 1],
+    [6, 8, 5],
+    [8, 2, 1],
+    [8, 6, 3],
   ]
   for (let i = 0; i < playerCorners.length; i++) {
     const [a, corner, c] = playerCorners[i]
@@ -313,6 +315,24 @@ export function cpuPlayAsO(
       currentSquares[corner] === null
     ) {
       nextSquares[corner] = cpuSymbol
+      setCpuPlaying(false)
+      return handlePlay(nextSquares)
+    }
+  }
+
+  // if playerSymbols is in a diagonals
+  const diagonalPlayerCorners = [
+    [0, 1, 8],
+    [2, 1, 6],
+  ]
+  for (let i = 0; i < diagonalPlayerCorners.length; i++) {
+    const [a, cpu, c] = diagonalPlayerCorners[i]
+    if (
+      currentSquares[a] === playerSymbol &&
+      currentSquares[c] === playerSymbol &&
+      currentSquares[cpu] === null
+    ) {
+      nextSquares[cpu] = cpuSymbol
       setCpuPlaying(false)
       return handlePlay(nextSquares)
     }
