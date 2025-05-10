@@ -114,11 +114,11 @@
     flex-direction: column;
     align-items: center;
     p {
-      font-size: 60px;
+      font-size: 40px;
       color: white;
     }
     button {
-      font-size: 40px;
+      font-size: 30px;
       background: rgb(21, 89, 105);
       border: 2px solid transparent;
       transition: all 0.3s ease-in;
@@ -146,14 +146,14 @@
     font-size: 20px;
     text-align: center;
     p {
-      font-size: 60px;
+      font-size: 40px;
       color: white;
     }
     .buttons {
       display: flex;
       gap: 20px;
       button {
-        font-size: 40px;
+        font-size: 30px;
         background: rgb(21, 89, 105);
         border: 2px solid transparent;
         transition: all 0.3s ease-in;
@@ -182,14 +182,14 @@
     font-size: 20px;
     text-align: center;
     p {
-      font-size: 60px;
+      font-size: 40px;
       color: white;
     }
     .buttons {
       display: flex;
       gap: 20px;
       button {
-        font-size: 50px;
+        font-size: 30px;
         background: rgb(21, 89, 105);
         border: 2px solid transparent;
         transition: all 0.3s ease-in;
@@ -211,7 +211,7 @@
     }
   }
   .start {
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 50px;
     background: rgb(21, 89, 105);
     transform: scale(0.8);
