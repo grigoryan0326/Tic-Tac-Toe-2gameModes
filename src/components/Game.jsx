@@ -165,7 +165,8 @@ export default function Game() {
           {state.gameRecord.lose > 1 ? "Losses:" : "Loss:"}{" "}
           {state.gameRecord.lose}
         </span>
-        <div className="info">
+        {/* TODO add tooltip */}
+        {/* <div className="info">
           <FontAwesomeIcon icon={faCircleInfo} className="info-image" />
           <div className="tooltip">
             <p>
@@ -180,7 +181,7 @@ export default function Game() {
               the <span>Restart Game</span> button.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="game">
         {showModal && (
