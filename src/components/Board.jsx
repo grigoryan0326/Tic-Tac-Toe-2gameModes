@@ -49,6 +49,7 @@ export default function Board({
 
   const calculateWinner = useCallback(
     (squares) => {
+
       const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -96,6 +97,8 @@ export default function Board({
   } else if (winner?.winner === "draw" && playMode === "playerVSplayer") {
     status = <span className="final">Draw</span>
   } else if (playMode === "playerVSplayer") {
+    console.log('current', currentPlayer);
+
     status = (
       <>
         Current player: <span>{currentPlayer}</span>
@@ -115,7 +118,7 @@ export default function Board({
         )}
       </>
     )
-  } else {
+  } else if (playMode === "playerVScpu") {
     status = (
       <>
         Your symbol: <span>{playerSymbol}</span>
@@ -159,6 +162,8 @@ export default function Board({
   useEffect(() => {
     setWinningSquares(winner?.winningSquares)
   }, [winner, setWinningSquares])
+
+
 
   return (
     <>
