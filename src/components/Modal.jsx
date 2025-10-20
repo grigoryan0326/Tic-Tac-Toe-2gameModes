@@ -17,7 +17,7 @@ const customStyles = {
   },
   overlay: {
     position: 'absolute',
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
   },
 }
 
