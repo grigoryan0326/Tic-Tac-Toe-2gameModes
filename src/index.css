@@ -22,10 +22,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  color-scheme: dark;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
