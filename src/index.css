@@ -35,7 +35,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   box-sizing: border-box;
@@ -49,6 +48,9 @@ h1 {
   span {
     color: red;
   }
+  @media screen and (max-width: 520px) {
+    font-size: 2.5em;
+  }
 }
 
 p {
@@ -56,10 +58,12 @@ p {
 }
 
 ol,
-li {
+li,
+ul {
   margin: 0;
   padding: 0;
   list-style-position: inside;
+  list-style-type: none;
 }
 
 button {
@@ -72,6 +76,9 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  @media screen and (max-width: 520px) {
+    font-size: 0.8em;
+  }
 }
 
 button:hover {

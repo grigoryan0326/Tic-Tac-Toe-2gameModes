@@ -2,10 +2,14 @@
   display: flex;
   align-items: center;
   gap: 50px;
+
   @media screen and (max-width: 830px) {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 25px;
   }
+
   .game-board {
     .game-actions {
       margin-bottom: 20px;
@@ -14,6 +18,11 @@
       align-items: center;
       justify-content: space-between;
       flex: 1;
+
+      @media screen and (max-width: 520px) {
+        gap: 20px;
+      }
+
       .status {
         height: 60px;
         font-size: 35px;
@@ -23,34 +32,48 @@
         justify-content: center;
         font-weight: 300;
         letter-spacing: 1px;
+
+        @media screen and (max-width: 520px) {
+          font-size: 20px;
+          white-space: nowrap;
+        }
+
         span {
           color: green;
           font-weight: 700;
           font-size: 40px;
         }
+
         .final {
-          -webkit-animation: flip-2-hor-top-1 0.5s
-            cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-          animation: flip-2-hor-top-1 0.5s
-            cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+          -webkit-animation: flip-2-hor-top-1 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+          animation: flip-2-hor-top-1 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
         }
       }
+
       .restart {
         font-family: "DynaPuff", system-ui;
         background: rgb(30, 63, 70);
         border: 1px solid transparent;
         transition: all 0.3s ease-in;
+
         &:hover {
           border-color: white;
         }
       }
     }
+
     .board-row {
       flex: 1;
       display: grid;
       grid-template-columns: repeat(3, 150px);
       grid-template-rows: repeat(3, 150px);
       justify-content: center;
+
+      @media screen and (max-width: 520px) {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+      }
+
       .square {
         border: 1px solid white;
         transition: all 0.3s ease-in;
@@ -64,6 +87,11 @@
         color: whitesmoke;
         border-radius: 0;
         position: relative;
+
+        @media screen and (max-width: 520px) {
+          font-size: 40px;
+        }
+
         small {
           position: absolute;
           top: -5px;
@@ -71,15 +99,18 @@
           color: rgba(255, 255, 255, 0.25);
           font-size: 30px;
         }
+
         &.winningSquare {
           background-color: green;
         }
       }
     }
   }
+
   .game-info {
     flex: 1;
     align-self: stretch;
+
     ul {
       margin-top: 10px;
       display: flex;
@@ -88,12 +119,18 @@
       gap: 10px;
       text-align: left;
       list-style-type: none;
+
+      @media screen and (max-width: 830px) {
+        align-items: center;
+      }
+
       li button {
-        margin-left: 10px;
         font-family: "DynaPuff", system-ui;
+
         &:hover {
           border-color: white;
         }
+
         &.active {
           border-color: green;
           color: green;
@@ -109,14 +146,17 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
+
   .reset-record {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     p {
       font-size: 40px;
       color: white;
     }
+
     button {
       font-size: 30px;
       background: rgb(21, 89, 105);
@@ -126,11 +166,13 @@
       padding: 0.4em 0.8em;
       opacity: 0.6;
       transform: scale(0.8);
+
       &:hover {
         border-color: white;
         transform: scale(1);
         opacity: 1;
       }
+
       &.active {
         background: green;
         opacity: 1;
@@ -138,6 +180,7 @@
       }
     }
   }
+
   .mode {
     display: flex;
     flex-direction: column;
@@ -145,13 +188,16 @@
     color: black;
     font-size: 20px;
     text-align: center;
+
     p {
       font-size: 40px;
       color: white;
     }
+
     .buttons {
       display: flex;
       gap: 20px;
+
       button {
         font-size: 30px;
         background: rgb(21, 89, 105);
@@ -161,11 +207,13 @@
         padding: 0.4em 0.8em;
         opacity: 0.6;
         transform: scale(0.8);
+
         &:hover {
           border-color: white;
           transform: scale(1);
           opacity: 1;
         }
+
         &.active {
           background: green;
           opacity: 1;
@@ -174,6 +222,7 @@
       }
     }
   }
+
   .side {
     display: flex;
     flex-direction: column;
@@ -181,13 +230,16 @@
     color: black;
     font-size: 20px;
     text-align: center;
+
     p {
       font-size: 40px;
       color: white;
     }
+
     .buttons {
       display: flex;
       gap: 20px;
+
       button {
         font-size: 30px;
         background: rgb(21, 89, 105);
@@ -197,11 +249,13 @@
         padding: 0.4em 0.8em;
         opacity: 0.6;
         transform: scale(0.8);
+
         &:hover {
           border-color: white;
           transform: scale(1);
           opacity: 1;
         }
+
         &.active {
           background: green;
           opacity: 1;
@@ -210,12 +264,14 @@
       }
     }
   }
+
   .start {
     font-size: 30px;
     margin-top: 50px;
     background: rgb(21, 89, 105);
     transform: scale(0.8);
     transition: all 0.3s ease-in;
+
     &:hover {
       border-color: white;
       transform: scale(1);
@@ -234,6 +290,11 @@
   margin-bottom: 0.67em;
   font-weight: 600;
   position: relative;
+
+  @media screen and (max-width: 520px) {
+    font-size: 20px;
+  }
+
   .info {
     position: absolute;
     top: -20px;
@@ -247,6 +308,7 @@
       overflow: hidden;
       background-color: #192a38;
     }
+
     .tooltip {
       position: absolute;
       top: 20px;
@@ -262,9 +324,11 @@
       transition: opacity 0.3s;
       z-index: 5;
       width: 250px;
+
       p:last-child {
         margin-top: 10px;
       }
+
       span {
         color: green;
         font-weight: 700;
@@ -287,6 +351,7 @@
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
   }
+
   100% {
     -webkit-transform: translateY(0) rotateX(0);
     transform: translateY(0) rotateX(0);
@@ -294,6 +359,7 @@
     transform-origin: 50% 0%;
   }
 }
+
 @keyframes flip-2-hor-top-1 {
   0% {
     -webkit-transform: translateY(-100%) rotateX(-180deg);
@@ -301,6 +367,7 @@
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
   }
+
   100% {
     -webkit-transform: translateY(0) rotateX(0);
     transform: translateY(0) rotateX(0);
